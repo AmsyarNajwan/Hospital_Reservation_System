@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/hsnz_logo.png" type="image/x-icon">
     <title>Hospital Sultanah Nur Zahirah </title>
-    <!-- Load Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind theme -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,45 +22,24 @@
             }
         }
     </script>
-    <style>
-        /* Custom styles for the blurred hero background effect */
-        .hero-background {
-            /* MENGGUNAKAN IMEJ LOKAL 'images/bg-1.jpg' */
-            background-image: url('images/bg-1.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            position: relative;
-        }
-
-        /* Gradient overlay for better text readability */
-        .hero-overlay {
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1) 100%);
-        }
-
-        /* Icon styling for feature cards */
-        .feature-icon {
-            transition: color 0.3s ease;
-        }
-
-        .feature-card:hover .feature-icon {
-            color: #0070a8;
-            /* Highlight color on hover */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-white font-sans antialiased">
 
     <!-- Welcome Modal -->
-    <div id="welcomeModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full transform transition-all overflow-hidden border-2 border-hospital-blue">
+    <div id="welcomeModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4"
+        role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div
+            class="bg-white rounded-xl shadow-2xl max-w-lg w-full transform transition-all overflow-hidden border-2 border-hospital-blue">
             <!-- Modal Header -->
             <div class="p-6 bg-hospital-blue text-white flex justify-between items-center">
                 <h2 id="modalTitle" class="text-2xl font-bold">Pemberitahuan</h2>
                 <button id="closeModalButton" class="text-white hover:text-gray-200 transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
             </div>
@@ -71,8 +48,12 @@
                 <!-- Assuming a logo for the modal body -->
                 <img src="images/hsnz_logo.png" alt="HSNZ Hospital Logo" class="h-16 w-36 mx-auto mb-4">
                 <h3 class="text-3xl font-extrabold text-hospital-blue mb-4">Selamat Datang</h3>
-                <p class="text-gray-700 text-lg mb-6">Selamat datang ke Portal Tempahan Hospital Sultanah Nur Zahirah. Kami komited untuk menyediakan penjagaan kesihatan yang terbaik untuk anda.</p>
-                <button id="confirmCloseButton" class="bg-hospital-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition duration-300 shadow-md">
+                <p class="text-gray-900 text-lg mb-6">Selamat datang ke Portal Tempahan Hospital Sultanah Nur Zahirah.
+                    Kami komited untuk menyediakan penjagaan kesihatan yang terbaik untuk anda.</p>
+                <p class="text-gray-300 text-lg mb-6">Peringatan : kotak ini akan muncul setiap 60 saat selepas anda
+                    tutup.</p>
+                <button id="confirmCloseButton"
+                    class="bg-hospital-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition duration-300 shadow-md">
                     Teruskan ke Laman Utama
                 </button>
             </div>
@@ -94,23 +75,15 @@
 
                     <!-- Navigation Links (Desktop) -->
                     <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
-                        <a href="#" class="text-hospital-blue border-b-2 border-hospital-blue pb-1">LAMAN UTAMA</a>
-                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">PERKHIDMATAN</a>
+                        <a href="index.html" class="text-hospital-blue border-b-2 border-hospital-blue pb-1">LAMAN
+                            UTAMA</a>
+                        <a href="perkhidmatan.html"
+                            class="hover:text-hospital-blue transition duration-150 pb-1">PERKHIDMATAN</a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">DOKTOR KAMI</a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">PORTAL PESAKIT</a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">HUBUNGI KAMI</a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">ADUAN</a>
                     </nav>
-
-                    <!-- Mobile Menu Button (Omitted for this static example, but placement is here) -->
-                    <div class="md:hidden">
-                        <!-- Example: Hamburger icon -->
-                        <button class="text-gray-500 hover:text-hospital-blue focus:outline-none">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                            </svg>
-                        </button>
-                    </div>
                 </div>
             </div>
         </header>
@@ -121,51 +94,61 @@
             <!-- 1. Hero Section -->
             <section class="hero-background rounded-lg mt-6 overflow-hidden shadow-lg">
                 <div class="hero-overlay absolute inset-0 flex flex-col justify-center p-8 sm:p-16">
-                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-tight mb-4">
+                    <h1 class="text-4xl text-6xl font-extrabold text-white leading-tight mb-4 ">
                         NYAWA ANDA<br>KEUTAMAAN KAMI
                     </h1>
                     <p class="text-xl text-gray-100 mb-8">
                         Menyediakan Perkhidmatan dan Servis Terbaik Kami
                     </p>
-                    <a href="#" class="self-start px-8 py-3 bg-hospital-blue text-white font-bold rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
-                        TEMPAH TEMUJANJI
-                    </a>
                 </div>
             </section>
 
             <!-- 2. Feature Cards -->
+            <br><br><br>
             <section class="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-16 z-10 relative px-4 sm:px-0">
 
                 <!-- Card 1: Emergency Care (RAWATAN KECEMASAN) -->
-                <div class="feature-card bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-100 cursor-pointer">
+                <div
+                    class="feature-card bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-100 cursor-pointer">
                     <div class="flex justify-center mb-4">
                         <!-- Inline SVG: Heart with Cross -->
-                        <svg class="feature-icon w-12 h-12 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0zm7-3.182h.01M12 21.5l-8.485-8.485a6.5 6.5 0 010-9.192 6.5 6.5 0 019.192 0zM12 11V7m-2 2h4" />
+                        <svg class="feature-icon w-12 h-12 text-blue-300" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0zm7-3.182h.01M12 21.5l-8.485-8.485a6.5 6.5 0 010-9.192 6.5 6.5 0 019.192 0zM12 11V7m-2 2h4" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">RAWATAN KECEMASAN</h3>
                     <p class="text-gray-500">Bantuan segera 24/7 untuk situasi kritikal.</p>
                 </div>
 
-                <!-- Card 2: Find a Doctor (CARI DOKTOR) -->
-                <div class="feature-card bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-100 cursor-pointer">
+                <!-- Card 2: Get A Direction -->
+                <a href="https://www.google.com/maps/dir//84GX%2BRH+Sultanah+Nur+Zahirah+Hospital,+Kuala+Terengganu,+Jalan+Sultan+Mahmud,+20400+Kuala+Terengganu,+Terengganu/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x31b7bfb426ef2e85:0x687526b9d5ee20ce?sa=X&ved=1t:57443&ictx=111"
+                    target="_blank" rel="noopener noreferrer"
+                    class="feature-card bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-100 cursor-pointer group">
                     <div class="flex justify-center mb-4">
-                        <!-- Inline SVG: Magnifying Glass -->
-                        <svg class="feature-icon w-12 h-12 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 8v4m0 0v4m0-4h4m-4 0H6" />
+                        <!-- Inline SVG: Destination / Direction Arrow -->
+                        <svg class="feature-icon w-12 h-12 text-blue-300 group-hover:text-hospital-blue transition duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">CARI DOKTOR</h3>
-                    <p class="text-gray-500">Semak doktor mengikut pengkhususan dan ketersediaan.</p>
-                </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">LOKASI KAMI</h3>
+                    <p class="text-gray-500">Dapatkan arah untuk hospital kami.</p>
+                </a>
 
                 <!-- Card 3: Appointments (TEMUJANJI) -->
-                <div class="feature-card bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-100 cursor-pointer">
+                <div
+                    class="feature-card bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 text-center border border-gray-100 cursor-pointer">
                     <div class="flex justify-center mb-4">
                         <!-- Inline SVG: Calendar -->
-                        <svg class="feature-icon w-12 h-12 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        <svg class="feature-icon w-12 h-12 text-blue-300" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">TEMUJANJI</h3>
@@ -173,17 +156,131 @@
                 </div>
             </section>
 
-            <!-- 3. Testimonial Section -->
-            <section class="mt-12 bg-white p-8 rounded-xl shadow-md border border-gray-100 mx-4 sm:mx-0">
-                <div class="flex items-center space-x-6">
-                    <!-- Placeholder Profile Image -->
-                    <img src="https://placehold.co/80x80/0070A8/FFFFFF?text=P" alt="Patient Profile" class="w-20 h-20 rounded-full object-cover shadow-inner border-2 border-hospital-blue">
+            <!-- 3. Testimonial Section (Ubahsuai Grid Layout) -->
+            <section class="mt-12 mx-4 sm:mx-0">
+                <h2 class="text-3xl font-bold text-gray-800 text-center mb-10">Apa Kata Pesakit Kami</h2>
 
-                    <div>
-                        <blockquote class="text-lg italic text-gray-700">
-                            "Hospital Sultanah Nur Zahirah memberikan perkhidmatan yang cemerlang. Sistem tempahan menjadikan proses rawatan sangat lancar."
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Testimonial 1 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-hospital-blue">
+                        <div class="text-hospital-blue text-2xl mb-3">
+                            <!-- Star Rating Icon Placeholder -->
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <blockquote class="text-base italic text-gray-700 leading-relaxed mb-4">
+                            "Proses tempahan temujanji sangat mudah dan pantas. Saya dapat melihat ketersediaan doktor
+                            dengan jelas. Perkhidmatan di kaunter juga mesra!"
                         </blockquote>
-                        <p class="mt-2 text-sm text-gray-500 font-medium">- Puan Siti Aishah</p>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/56x56/C0D9F4/0070A8?text=SA" alt="Siti Aishah"
+                                class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <p class="text-md font-semibold text-gray-800">Puan Siti Aishah</p>
+                                <p class="text-sm text-gray-500">Kuala Terengganu</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-hospital-blue">
+                        <div class="text-hospital-blue text-2xl mb-3">
+                            ⭐⭐⭐⭐
+                        </div>
+                        <blockquote class="text-base italic text-gray-700 leading-relaxed mb-4">
+                            "Saya amat menghargai layanan doktor pakar yang sabar dan profesional. Mereka menerangkan
+                            keadaan kesihatan saya dengan sangat terperinci."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/56x56/C0D9F4/0070A8?text=MB" alt="Mohd Bakar"
+                                class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <p class="text-md font-semibold text-gray-800">Encik Mohd Bakar</p>
+                                <p class="text-sm text-gray-500">Dungun</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-hospital-blue">
+                        <div class="text-hospital-blue text-2xl mb-3">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <blockquote class="text-base italic text-gray-700 leading-relaxed mb-4">
+                            "Bilik rawatan dan kemudahan hospital sangat bersih dan moden. Ia memberikan suasana yang
+                            menenangkan, berbeza daripada hospital lain."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/56x56/C0D9F4/0070A8?text=RA" alt="Raja Abdullah"
+                                class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <p class="text-md font-semibold text-gray-800">Raja Abdullah</p>
+                                <p class="text-sm text-gray-500">Chukai</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 (Extra for full content) -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-hospital-blue">
+                        <div class="text-hospital-blue text-2xl mb-3">
+                            ⭐⭐⭐⭐
+                        </div>
+                        <blockquote class="text-base italic text-gray-700 leading-relaxed mb-4">
+                            "Sistem dalam talian membantu saya menguruskan temujanji ibu saya tanpa perlu menelefon,
+                            sangat menjimatkan masa dan tenaga."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/56x56/C0D9F4/0070A8?text=NF" alt="Nur Fatihah"
+                                class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <p class="text-md font-semibold text-gray-800">Cik Nur Fatihah</p>
+                                <p class="text-sm text-gray-500">Besut</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 5 (NEW) -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-hospital-blue">
+                        <div class="text-hospital-blue text-2xl mb-3">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <blockquote class="text-base italic text-gray-700 leading-relaxed mb-4">
+                            "Bahagian kecemasan sangat pantas bertindak. Kakitangan yang sangat profesional dan membantu
+                            dalam situasi kritikal."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/56x56/C0D9F4/0070A8?text=RM" alt="Encik Razali M."
+                                class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <p class="text-md font-semibold text-gray-800">Encik Razali M.</p>
+                                <p class="text-sm text-gray-500">Setiu</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 6 (NEW) -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-hospital-blue">
+                        <div class="text-hospital-blue text-2xl mb-3">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <blockquote class="text-base italic text-gray-700 leading-relaxed mb-4">
+                            "Saya amat menghargai susulan terperinci yang diberikan oleh doktor selepas rawatan. Layanan
+                            yang sungguh mesra."
+                        </blockquote>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://placehold.co/56x56/C0D9F4/0070A8?text=ZI" alt="Puan Zulaikha I."
+                                class="w-14 h-14 rounded-full object-cover shadow">
+                            <div>
+                                <p class="text-md font-semibold text-gray-800">Puan Zulaikha I.</p>
+                                <p class="text-sm text-gray-500">Marang</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -199,7 +296,8 @@
                         <!-- Updated to use the consistent logo name -->
                         <img src="images/hsnz_logo.png" alt="HSNZ Hospital Footer Logo">
                     </div>
-                    <p class="text-sm text-gray-500">Komited untuk menyediakan penjagaan kesihatan bertaraf dunia dengan penuh keprihatinan dan inovasi.</p>
+                    <p class="text-sm text-gray-500">Komited untuk menyediakan penjagaan kesihatan bertaraf dunia dengan
+                        penuh keprihatinan dan inovasi.</p>
                 </div>
 
                 <!-- About Us -->
@@ -228,18 +326,21 @@
                     <ul class="space-y-2 text-sm text-gray-600">
                         <li>Hospital Sultanah Nur Zahirah, Jalan Sultan Mahmud, 20400 Kuala Terengganu, Terengganu</li>
                         <li>Telefon: 09-6212121</li>
-                        <li>E-mel: <a href="mailto:info@hsnz.com" class="hover:text-hospital-blue">info@hsnz.com</a></li>
+                        <li>E-mel: <a href="mailto:info@hsnz.com" class="hover:text-hospital-blue">info@hsnz.com</a>
+                        </li>
                     </ul>
                     <div class="flex space-x-4 mt-4 text-gray-500">
                         <!-- Social Media Icons (placeholders) -->
                         <a href="#" class="hover:text-hospital-blue transition duration-150">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.24 4.556a8.88 8.88 0 01-2.584.707 4.452 4.452 0 001.954-2.482 8.927 8.927 0 01-2.812 1.07A4.45 4.45 0 0014.288 8.04c-3.708 0-6.711-3.003-6.711-6.711 0-.395.044-.783.128-1.156A8.88 8.88 0 001 5.952a12.597 12.597 0 007.03 9.471 4.444 4.444 0 01-1.954 1.144 4.484 4.484 0 01-.65-.04c1.884.67 4.093 1.058 6.54 1.058 7.844 0 12.138-6.495 12.138-12.138 0-.185-.004-.368-.011-.55z" />
+                                <path
+                                    d="M22.24 4.556a8.88 8.88 0 01-2.584.707 4.452 4.452 0 001.954-2.482 8.927 8.927 0 01-2.812 1.07A4.45 4.45 0 0014.288 8.04c-3.708 0-6.711-3.003-6.711-6.711 0-.395.044-.783.128-1.156A8.88 8.88 0 001 5.952a12.597 12.597 0 007.03 9.471 4.444 4.444 0 01-1.954 1.144 4.484 4.484 0 01-.65-.04c1.884.67 4.093 1.058 6.54 1.058 7.844 0 12.138-6.495 12.138-12.138 0-.185-.004-.368-.011-.55z" />
                             </svg>
                         </a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.325 15.688H13.5V12h2.25l.337-2.75H13.5V7.5c0-.68.188-1.144 1.144-1.144h1.22V4.57c-.212-.027-1.144-.112-2.188-.112-2.17 0-3.656 1.334-3.656 3.75V9.25H8.25v2.75h1.562V17.688H8.25V20.5H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
+                                <path
+                                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.325 15.688H13.5V12h2.25l.337-2.75H13.5V7.5c0-.68.188-1.144 1.144-1.144h1.22V4.57c-.212-.027-1.144-.112-2.188-.112-2.17 0-3.656 1.334-3.656 3.75V9.25H8.25v2.75h1.562V17.688H8.25V20.5H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
                             </svg>
                         </a>
                     </div>
@@ -256,6 +357,10 @@
 
     <!-- JavaScript Modal Buka Tutp !!! -->
     <script>
+        // Constants for local storage and cooldown
+        const STORAGE_KEY = 'welcomeModalClosedTime';
+        const COOLDOWN_DURATION = 60 * 1000; // 60 seconds in milliseconds
+
         // Get modal elements
         const modal = document.getElementById('welcomeModal');
         const closeButton = document.getElementById('closeModalButton');
@@ -267,18 +372,36 @@
             modal.classList.add('flex');
         }
 
-        // Function to hide the modal
+        // Function to hide the modal and save the timestamp
         function hideModal() {
             modal.classList.remove('flex');
             modal.classList.add('hidden');
+            // Save the current time when the user closes the modal
+            localStorage.setItem(STORAGE_KEY, Date.now());
         }
 
         // Event listeners to hide the modal
         closeButton.addEventListener('click', hideModal);
         confirmCloseButton.addEventListener('click', hideModal);
 
-        // Show modal automatically when the page loads
-        window.onload = showModal;
+        // Logic to check the cooldown period before showing the modal
+        window.onload = function () {
+            const lastClosed = localStorage.getItem(STORAGE_KEY);
+            const currentTime = Date.now();
+
+            if (lastClosed) {
+                // Check if the cooldown period has expired (Current Time > Last Closed Time + Cooldown)
+                if (currentTime > (parseInt(lastClosed) + COOLDOWN_DURATION)) {
+                    // Cooldown expired, show the modal
+                    showModal();
+                } else {
+                    // Still in cooldown, keep it hidden (default state)
+                }
+            } else {
+                // Never closed before, show the modal
+                showModal();
+            }
+        };
 
         // Optional: Hide modal if user clicks outside of the main content (on the backdrop)
         modal.addEventListener('click', (e) => {

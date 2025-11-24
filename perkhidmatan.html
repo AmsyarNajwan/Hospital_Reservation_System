@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/hsnz_logo.png" type="image/x-icon">
+    <title>Hospital Sultanah Nur Zahirah - Perkhidmatan</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hospital-blue': '#0070a8',
+                        // Removed light-gray as body is now pure white
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-white font-sans antialiased">
+    <div class="min-h-screen flex flex-col items-center">
+          <!-- Navigation Bar -->
+        <header class="w-full bg-white shadow-sm">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo/Brand -->
+                    <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-hospital-blue">
+                        <!-- Logo with adjusted size class (h-16 w-36) -->
+                        <img src="images/hsnz_logo.png" alt="HSNZ Hospital Logo" class="h-16 w-36">
+                    </a>
+
+                    <!-- Navigation Links (Desktop) -->
+                    <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
+                        <a href="index.html" class="hover:text-hospital-blue transition duration-150 pb-1">LAMAN UTAMA</a>
+                        <a href="perkhidmatan.html" class="text-hospital-blue border-b-2 border-hospital-blue pb-1">PERKHIDMATAN</a>
+                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">DOKTOR KAMI</a>
+                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">PORTAL PESAKIT</a>
+                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">HUBUNGI KAMI</a>
+                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">ADUAN</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Container -->
+        
+
+        <!-- Footer -->
+        <footer class="w-full bg-white border-t border-gray-200 mt-12 pt-8 pb-4">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-8">
+
+                <!-- Brand Info -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="h-40 w-40">
+                        <!-- Updated to use the consistent logo name -->
+                        <img src="images/hsnz_logo.png" alt="HSNZ Hospital Footer Logo">
+                    </div>
+                    <p class="text-sm text-gray-500">Komited untuk menyediakan penjagaan kesihatan bertaraf dunia dengan penuh keprihatinan dan inovasi.</p>
+                </div>
+
+                <!-- About Us -->
+                <div>
+                    <h4 class="text-md font-semibold text-gray-800 mb-3">Tentang Kami</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-hospital-blue">Misi Kami</a></li>
+                        <li><a href="#" class="hover:text-hospital-blue">Kerjaya</a></li>
+                        <li><a href="#" class="hover:text-hospital-blue">Doktor</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-md font-semibold text-gray-800 mb-3">Pautan Pantas</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-hospital-blue">Portal Pesakit</a></li>
+                        <li><a href="#" class="hover:text-hospital-blue">Jabatan</a></li>
+                        <li><a href="#" class="hover:text-hospital-blue">Perkhidmatan Bil</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="text-md font-semibold text-gray-800 mb-3">Hubungi</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>Hospital Sultanah Nur Zahirah, Jalan Sultan Mahmud, 20400 Kuala Terengganu, Terengganu</li>
+                        <li>Telefon: 09-6212121</li>
+                        <li>E-mel: <a href="mailto:info@hsnz.com" class="hover:text-hospital-blue">info@hsnz.com</a></li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4 text-gray-500">
+                        <!-- Social Media Icons (placeholders) -->
+                        <a href="#" class="hover:text-hospital-blue transition duration-150">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.24 4.556a8.88 8.88 0 01-2.584.707 4.452 4.452 0 001.954-2.482 8.927 8.927 0 01-2.812 1.07A4.45 4.45 0 0014.288 8.04c-3.708 0-6.711-3.003-6.711-6.711 0-.395.044-.783.128-1.156A8.88 8.88 0 001 5.952a12.597 12.597 0 007.03 9.471 4.444 4.444 0 01-1.954 1.144 4.484 4.484 0 01-.65-.04c1.884.67 4.093 1.058 6.54 1.058 7.844 0 12.138-6.495 12.138-12.138 0-.185-.004-.368-.011-.55z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-hospital-blue transition duration-150">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.325 15.688H13.5V12h2.25l.337-2.75H13.5V7.5c0-.68.188-1.144 1.144-1.144h1.22V4.57c-.212-.027-1.144-.112-2.188-.112-2.17 0-3.656 1.334-3.656 3.75V9.25H8.25v2.75h1.562V17.688H8.25V20.5H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-8 pt-4 border-t border-gray-100 text-center">
+                <p class="text-xs text-gray-400">&copy; 2025 Amsyar Najwan. Hak Cipta Terpelihara. | Polisi Privasi</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

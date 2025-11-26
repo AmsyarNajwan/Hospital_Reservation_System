@@ -29,7 +29,7 @@
 
 <body class="bg-white font-sans antialiased">
     <div class="min-h-screen flex flex-col items-center">
-          <!-- Navigation Bar -->
+        <!-- Navigation Bar -->
         <header class="w-full bg-white shadow-sm">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <div class="flex items-center justify-between h-20">
@@ -41,9 +41,13 @@
 
                     <!-- Navigation Links (Desktop) -->
                     <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
-                        <a href="index.html" class="hover:text-hospital-blue transition duration-150 pb-1">LAMAN UTAMA</a>
-                        <a href="perkhidmatan.html" class="text-hospital-blue border-b-2 border-hospital-blue pb-1">PERKHIDMATAN</a>
-                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">DOKTOR KAMI</a>
+                        <!-- Pautan yang telah diubah suai untuk statik HTML -->
+                        <a href="index.html" class="hover:text-hospital-blue transition duration-150 pb-1">LAMAN
+                            UTAMA</a>
+                        <a href="perkhidmatan.html"
+                            class="text-hospital-blue border-b-2 border-hospital-blue pb-1">PERKHIDMATAN</a>
+                        <a href="doktor.html" class="hover:text-hospital-blue transition duration-150 pb-1">DOKTOR
+                            KAMI</a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">PORTAL PESAKIT</a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">HUBUNGI KAMI</a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">ADUAN</a>
@@ -53,7 +57,212 @@
         </header>
 
         <!-- Main Content Container -->
-        
+        <main class="w-full max-w-7xl mx-auto flex-grow pb-12 mt-6 px-4 sm:px-6 lg:px-8">
+
+            <!-- Service Page Header -->
+            <section class="bg-hospital-blue text-white p-8 rounded-xl shadow-lg mb-8">
+                <h1 class="text-4xl font-bold mb-2">PERKHIDMATAN HOSPITAL</h1>
+                <p class="text-lg opacity-90">Rangkaian Penuh Perkhidmatan Klinikal & Sokongan Kesihatan di HSNZ.</p>
+            </section>
+
+            <!-- Services Grid (20 Perkhidmatan) -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Category 1: Perkhidmatan Klinikal Utama -->
+                <div class="service-card bg-light-blue rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                    <!-- Placeholder Imej: Klinikal Utama (Kecemasan/Pembedahan) -->
+                    <img src="images/perkhidmatan-1.jpg" alt="Rawatan Klinikal Utama" class="w-full h-48 object-cover">
+
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-hospital-blue mb-4">Pakar Klinikal Utama (7)</h2>
+                        <ul class="space-y-3 text-gray-700 service-list">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Jabatan Kecemasan & Trauma
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Pembedahan Am & Pakar
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Kardiologi (Penyakit Jantung)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Obstetrik & Ginekologi (O&G)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Pediatrik (Kesihatan Kanak-kanak)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Ortopedik (Tulang & Sendi)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Oftalmologi (Penyakit Mata)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 2: Pakar Khusus & Rawatan Lanjut -->
+                <div class="service-card bg-light-blue rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                    <!-- Placeholder Imej: Pakar Khusus (Neurologi/Kanser) -->
+                    <img src="images/perkhidmatan-2.jpg" alt="Pakar Khusus" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-hospital-blue mb-4">Pakar Khusus (7)</h2>
+                        <ul class="space-y-3 text-gray-700 service-list">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Neurologi (Penyakit Saraf)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Otorinolaringologi (ENT/Telinga, Hidung, Tekak)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Dermatologi (Penyakit Kulit)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Psikiatri & Kesihatan Mental
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Rawatan Hemodialisis
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Pembedahan Plastik & Rekonstruktif
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Onkologi (Rawatan Kanser)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Category 3: Diagnostik & Perkhidmatan Sokongan -->
+                <div class="service-card bg-light-blue rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                    <!-- Placeholder Imej: Diagnostik & Sokongan (MRI/Makmal) -->
+                    <img src="images/perkhidmatan-3.jpg" alt="Diagnostik & Sokongan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-hospital-blue mb-4">Diagnostik & Sokongan (6)</h2>
+                        <ul class="space-y-3 text-gray-700 service-list">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Radiologi & Pengimejan (MRI/CT Scan)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Patologi & Perkhidmatan Makmal
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Fisioterapi (Pemulihan Fizikal)
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Perkhidmatan Farmasi
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Dietetik & Pemakanan
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Pendidikan Kesihatan & Kaunseling
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer class="w-full bg-white border-t border-gray-200 mt-12 pt-8 pb-4">
@@ -65,7 +274,8 @@
                         <!-- Updated to use the consistent logo name -->
                         <img src="images/hsnz_logo.png" alt="HSNZ Hospital Footer Logo">
                     </div>
-                    <p class="text-sm text-gray-500">Komited untuk menyediakan penjagaan kesihatan bertaraf dunia dengan penuh keprihatinan dan inovasi.</p>
+                    <p class="text-sm text-gray-500">Komited untuk menyediakan penjagaan kesihatan bertaraf dunia dengan
+                        penuh keprihatinan dan inovasi.</p>
                 </div>
 
                 <!-- About Us -->
@@ -94,18 +304,21 @@
                     <ul class="space-y-2 text-sm text-gray-600">
                         <li>Hospital Sultanah Nur Zahirah, Jalan Sultan Mahmud, 20400 Kuala Terengganu, Terengganu</li>
                         <li>Telefon: 09-6212121</li>
-                        <li>E-mel: <a href="mailto:info@hsnz.com" class="hover:text-hospital-blue">info@hsnz.com</a></li>
+                        <li>E-mel: <a href="mailto:info@hsnz.com" class="hover:text-hospital-blue">info@hsnz.com</a>
+                        </li>
                     </ul>
                     <div class="flex space-x-4 mt-4 text-gray-500">
                         <!-- Social Media Icons (placeholders) -->
                         <a href="#" class="hover:text-hospital-blue transition duration-150">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.24 4.556a8.88 8.88 0 01-2.584.707 4.452 4.452 0 001.954-2.482 8.927 8.927 0 01-2.812 1.07A4.45 4.45 0 0014.288 8.04c-3.708 0-6.711-3.003-6.711-6.711 0-.395.044-.783.128-1.156A8.88 8.88 0 001 5.952a12.597 12.597 0 007.03 9.471 4.444 4.444 0 01-1.954 1.144 4.484 4.484 0 01-.65-.04c1.884.67 4.093 1.058 6.54 1.058 7.844 0 12.138-6.495 12.138-12.138 0-.185-.004-.368-.011-.55z" />
+                                <path
+                                    d="M22.24 4.556a8.88 8.88 0 01-2.584.707 4.452 4.452 0 001.954-2.482 8.927 8.927 0 01-2.812 1.07A4.45 4.45 0 0014.288 8.04c-3.708 0-6.711-3.003-6.711-6.711 0-.395.044-.783.128-1.156A8.88 8.88 0 001 5.952a12.597 12.597 0 007.03 9.471 4.444 4.444 0 01-1.954 1.144 4.484 4.484 0 01-.65-.04c1.884.67 4.093 1.058 6.54 1.058 7.844 0 12.138-6.495 12.138-12.138 0-.185-.004-.368-.011-.55z" />
                             </svg>
                         </a>
                         <a href="#" class="hover:text-hospital-blue transition duration-150">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.325 15.688H13.5V12h2.25l.337-2.75H13.5V7.5c0-.68.188-1.144 1.144-1.144h1.22V4.57c-.212-.027-1.144-.112-2.188-.112-2.17 0-3.656 1.334-3.656 3.75V9.25H8.25v2.75h1.562V17.688H8.25V20.5H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
+                                <path
+                                    d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.325 15.688H13.5V12h2.25l.337-2.75H13.5V7.5c0-.68.188-1.144 1.144-1.144h1.22V4.57c-.212-.027-1.144-.112-2.188-.112-2.17 0-3.656 1.334-3.656 3.75V9.25H8.25v2.75h1.562V17.688H8.25V20.5H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
                             </svg>
                         </a>
                     </div>

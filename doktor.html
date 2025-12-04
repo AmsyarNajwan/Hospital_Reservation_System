@@ -54,373 +54,679 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-white font-sans antialiased">
-    <div class="min-h-screen flex flex-col items-center">
+<body class="font-sans antialiased bg-white">
+    <div class="flex flex-col items-center min-h-screen">
         <header class="w-full bg-white shadow-sm">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div class="container px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div class="flex items-center justify-between h-20">
                     <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-hospital-blue">
                         <img src="images/hsnz_logo.png" alt="HSNZ Hospital Logo" class="h-16 w-36">
                     </a>
 
-                    <nav class="hidden md:flex space-x-8 text-gray-700 font-medium">
-                        <a href="index.html" class="hover:text-hospital-blue transition duration-150 pb-1">LAMAN
+                    <nav class="hidden space-x-8 font-medium text-gray-700 md:flex">
+                        <a href="index.html" class="pb-1 transition duration-150 hover:text-hospital-blue">LAMAN
                             UTAMA</a>
                         <a href="perkhidmatan.html"
-                            class="hover:text-hospital-blue transition duration-150 pb-1">PERKHIDMATAN</a>
-                        <a href="doktor.html" class="text-hospital-blue border-b-2 border-hospital-blue pb-1">DOKTOR
+                            class="pb-1 transition duration-150 hover:text-hospital-blue">PERKHIDMATAN</a>
+                        <a href="doktor.html" class="pb-1 border-b-2 text-hospital-blue border-hospital-blue">DOKTOR
                             KAMI</a>
-                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">PORTAL PESAKIT</a>
-                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">HUBUNGI KAMI</a>
-                        <a href="#" class="hover:text-hospital-blue transition duration-150 pb-1">ADUAN</a>
+                        <a href="#" class="pb-1 transition duration-150 hover:text-hospital-blue">PORTAL PESAKIT</a>
+                        <a href="#" class="pb-1 transition duration-150 hover:text-hospital-blue">HUBUNGI KAMI</a>
+                        <a href="#" class="pb-1 transition duration-150 hover:text-hospital-blue">ADUAN</a>
                     </nav>
                 </div>
             </div>
         </header>
 
-        <main class="w-full max-w-7xl mx-auto flex-grow pb-12 mt-6 px-4 sm:px-6 lg:px-8">
+        <main class="flex-grow w-full px-4 pb-12 mx-auto mt-6 max-w-7xl sm:px-6 lg:px-8">
 
-            <section class="bg-hospital-blue text-white p-8 rounded-xl shadow-lg mb-8 text-center">
-                <h1 class="text-4xl font-bold mb-2">PASUKAN DOKTOR PAKAR KAMI</h1>
+            <section class="p-8 mb-8 text-center text-white shadow-lg bg-hospital-blue rounded-xl">
+                <h1 class="mb-2 text-4xl font-bold">PASUKAN DOKTOR PAKAR KAMI</h1>
                 <p class="text-lg opacity-90">Kumpulan profesional perubatan yang berdedikasi dan berkelayakan tinggi.
                 </p>
             </section>
 
-            <div class="max-w-xl mx-auto mb-10 relative">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="filterDoctors('all')"
+                    class="px-6 py-2 font-medium text-white transition rounded-full shadow-md filter-btn bg-hospital-blue hover:bg-blue-800 active">Semua</button>
+                <button onclick="filterDoctors('perubatan')"
+                    class="px-6 py-2 font-medium text-gray-600 transition bg-white border border-gray-200 rounded-full shadow-sm filter-btn hover:bg-gray-50 hover:text-hospital-blue">Perubatan</button>
+                <button onclick="filterDoctors('pembedahan')"
+                    class="px-6 py-2 font-medium text-gray-600 transition bg-white border border-gray-200 rounded-full shadow-sm filter-btn hover:bg-gray-50 hover:text-hospital-blue">Pembedahan</button>
+                <button onclick="filterDoctors('sokongan')"
+                    class="px-6 py-2 font-medium text-gray-600 transition bg-white border border-gray-200 rounded-full shadow-sm filter-btn hover:bg-gray-50 hover:text-hospital-blue">Sokongan</button>
+            </div>
+
+            <div class="relative max-w-xl mx-auto mb-10">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                 </div>
                 <input type="text" id="searchInput"
-                    class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-hospital-blue focus:ring-1 focus:ring-hospital-blue sm:text-sm shadow-md transition duration-150 ease-in-out"
+                    class="block w-full py-3 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-lg shadow-md focus:outline-none focus:placeholder-gray-400 focus:border-hospital-blue focus:ring-1 focus:ring-hospital-blue sm:text-sm"
                     placeholder="Cari nama doktor atau kepakaran...">
             </div>
 
-            <section id="doctorsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-
+            <section id="doctorsGrid" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div id="noResults" class="hidden py-12 text-center">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                        </path>
+                    </svg>
+                    <p class="text-xl font-medium text-gray-500">Maaf, tiada doktor dijumpai.</p>
+                    <p class="text-gray-400">Cuba ejaan lain atau cari kepakaran.</p>
+                </div>
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="images/doktor-2.jpg" alt="Dr. Siti Nurhaliza binti Ali"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Siti Nurhaliza binti Ali</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Kardiologi (Jantung)</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P201</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Kardiologi (Jantung)</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P201</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=NH" alt="Dr. Nurul Huda binti Hassan"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Nurul Huda binti Hassan</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Pediatrik</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P203</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Pediatrik</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P203</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-red-600">Tidak Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded  transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=RS" alt="Dr. Ravi a/l Subramaniam"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Ravi a/l Subramaniam</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Neurologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P206</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Neurologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P206</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=KA" alt="Dr. Khairul Anuar bin Mansor"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Khairul Anuar bin Mansor</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Onkologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P207</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Onkologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P207</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=ZZ" alt="Dr. Zulaikha binti Zamani"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Zulaikha binti Zamani</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Dermatologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P208</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Dermatologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P208</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=FH" alt="Dr. Faizal bin Hashim"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Faizal bin Hashim</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Psikiatri</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P209</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Psikiatri</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P209</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=HS" alt="Dr. Hafizah binti Sulaiman"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Hafizah binti Sulaiman</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Nefrologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P212</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Nefrologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P212</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=AJ" alt="Dr. Amir bin Jamil"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Amir bin Jamil</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Perubatan Kecemasan</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P214</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Perubatan Kecemasan</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P214</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=SM" alt="Dr. Suraya binti Mohamad"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Suraya binti Mohamad</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Endokrinologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P216</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Endokrinologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P216</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=SA" alt="Dr. Sarah binti Abdullah"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Sarah binti Abdullah</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Perubatan Geriatrik</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P218</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Perubatan Geriatrik</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P218</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=VR" alt="Dr. Vincent Raj"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Vincent Raj</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Gastroenterologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P221</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Gastroenterologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P221</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=SW" alt="Dr. Syamilah binti Wahab"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Syamilah binti Wahab</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Genetik</p>
-                    <p class="text-gray-500 text-xs mt-2">Perubatan | Bilik P222</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Genetik</p>
+                    <p class="mt-2 text-xs text-gray-500">Perubatan | Bilik P222</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=MR" alt="Dr. Mohd. Razif bin Ahmad"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Mohd. Razif bin Ahmad</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Bedah Am</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S101</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Bedah Am</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S101</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=LK" alt="Dr. Lim Kok Wei"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Lim Kok Wei</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Ortopedik</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S102</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Ortopedik</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S102</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=CM" alt="Dr. Chan Mei Ling"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Chan Mei Ling</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar O&G</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S103</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar O&G</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S103</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=ET" alt="Dr. Evelyn Tan Lee Yen"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Evelyn Tan Lee Yen</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar ENT</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S105</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar ENT</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S105</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=AZ" alt="Dr. Ahmad Zaki bin Ismail"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Ahmad Zaki bin Ismail</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Oftalmologi (Mata)</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S106</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Oftalmologi (Mata)</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S106</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=WK" alt="Dr. Wong Kar Fai"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Wong Kar Fai</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Pembedahan Kardiotoraks</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S110</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Pembedahan Kardiotoraks</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S110</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=IA" alt="Dr. Intan Azura binti Ramli"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Intan Azura binti Ramli</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Urologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S113</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Urologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S113</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=TA" alt="Dr. Tan Aik Seng"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Tan Aik Seng</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Pembedahan Vaskular</p>
-                    <p class="text-gray-500 text-xs mt-2">Pembedahan | Bilik S115</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Pembedahan Vaskular</p>
+                    <p class="mt-2 text-xs text-gray-500">Pembedahan | Bilik S115</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=MR" alt="Dr. Muthu a/l Ramasamy"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Muthu a/l Ramasamy</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Anestesiologi</p>
-                    <p class="text-gray-500 text-xs mt-2">Sokongan | Bilik D301</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Anestesiologi</p>
+                    <p class="mt-2 text-xs text-gray-500">Sokongan | Bilik D301</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=LW" alt="Dr. Leong Weng Chung"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Leong Weng Chung</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Patologi Klinikal</p>
-                    <p class="text-gray-500 text-xs mt-2">Sokongan | Bilik D302</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Patologi Klinikal</p>
+                    <p class="mt-2 text-xs text-gray-500">Sokongan | Bilik D302</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=IK" alt="Dr. Izzati binti Kamal"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Izzati binti Kamal</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Radiologi Diagnostik</p>
-                    <p class="text-gray-500 text-xs mt-2">Sokongan | Bilik D303</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Radiologi Diagnostik</p>
+                    <p class="mt-2 text-xs text-gray-500">Sokongan | Bilik D303</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=SN" alt="Dr. Shahrul Nizam"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Shahrul Nizam</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pegawai Perubatan (MO)</p>
-                    <p class="text-gray-500 text-xs mt-2">Sokongan | Bilik D305</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pegawai Perubatan (MO)</p>
+                    <p class="mt-2 text-xs text-gray-500">Sokongan | Bilik D305</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=PK" alt="Dr. Premala a/p Krishnan"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Premala a/p Krishnan</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Kesihatan Awam</p>
-                    <p class="text-gray-500 text-xs mt-2">Sokongan | Bilik D308</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Kesihatan Awam</p>
+                    <p class="mt-2 text-xs text-gray-500">Sokongan | Bilik D308</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
                 <div
-                    class="doctor-card bg-light-blue rounded-xl shadow-md overflow-hidden text-center p-6 border border-gray-200">
+                    class="p-6 overflow-hidden text-center border border-gray-200 shadow-md doctor-card bg-light-blue rounded-xl">
                     <div
-                        class="doctor-initials w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl font-extrabold mb-4">
+                        class="flex items-center justify-center w-24 h-24 mx-auto mb-4 text-4xl font-extrabold rounded-full doctor-initials">
                         <img src="https://placehold.co/96x96/0070a8/ffffff?text=NI" alt="Dr. Norlela binti Idris"
-                            class="w-full h-full object-cover rounded-full">
+                            class="object-cover w-full h-full rounded-full">
                     </div>
                     <h3 class="text-lg font-semibold text-gray-800">Dr. Norlela binti Idris</h3>
-                    <p class="text-hospital-blue font-medium text-sm">Pakar Perubatan Forensik</p>
-                    <p class="text-gray-500 text-xs mt-2">Sokongan | Bilik D310</p>
+                    <p class="text-sm font-medium text-hospital-blue">Pakar Perubatan Forensik</p>
+                    <p class="mt-2 text-xs text-gray-500">Sokongan | Bilik D310</p>
+                    <div class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center">
+                            <span class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-green-600">Bertugas</span>
+                        </div>
+
+                        <a href="#"
+                            class="px-3 py-1.5 bg-hospital-blue text-white text-xs font-bold rounded hover:bg-blue-800 transition">
+                            Temu Janji
+                        </a>
+                    </div>
                 </div>
 
             </section>
         </main>
 
-        <footer class="w-full bg-white border-t border-gray-200 mt-12 pt-8 pb-4">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-8">
+        <footer class="w-full pt-8 pb-4 mt-12 bg-white border-t border-gray-200">
+            <div class="container grid grid-cols-2 gap-8 px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl md:grid-cols-4">
 
                 <div class="col-span-2 md:col-span-1">
-                    <div class="h-40 w-40">
+                    <div class="w-40 h-40">
                         <img src="images/hsnz_logo.png" alt="HSNZ Hospital Footer Logo">
                     </div>
                     <p class="text-sm text-gray-500">Komited untuk menyediakan penjagaan kesihatan bertaraf dunia dengan
@@ -428,7 +734,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-md font-semibold text-gray-800 mb-3">Tentang Kami</h4>
+                    <h4 class="mb-3 font-semibold text-gray-800 text-md">Tentang Kami</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
                         <li><a href="#" class="hover:text-hospital-blue">Misi Kami</a></li>
                         <li><a href="#" class="hover:text-hospital-blue">Kerjaya</a></li>
@@ -437,7 +743,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-md font-semibold text-gray-800 mb-3">Pautan Pantas</h4>
+                    <h4 class="mb-3 font-semibold text-gray-800 text-md">Pautan Pantas</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
                         <li><a href="#" class="hover:text-hospital-blue">Portal Pesakit</a></li>
                         <li><a href="#" class="hover:text-hospital-blue">Jabatan</a></li>
@@ -446,21 +752,21 @@
                 </div>
 
                 <div>
-                    <h4 class="text-md font-semibold text-gray-800 mb-3">Hubungi</h4>
+                    <h4 class="mb-3 font-semibold text-gray-800 text-md">Hubungi</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
                         <li>Hospital Sultanah Nur Zahirah, Jalan Sultan Mahmud, 20400 Kuala Terengganu, Terengganu</li>
                         <li>Telefon: 09-6212121</li>
                         <li>E-mel: <a href="mailto:info@hsnz.com" class="hover:text-hospital-blue">info@hsnz.com</a>
                         </li>
                     </ul>
-                    <div class="flex space-x-4 mt-4 text-gray-500">
-                        <a href="#" class="hover:text-hospital-blue transition duration-150">
+                    <div class="flex mt-4 space-x-4 text-gray-500">
+                        <a href="#" class="transition duration-150 hover:text-hospital-blue">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M22.24 4.556a8.88 8.88 0 01-2.584.707 4.452 4.452 0 001.954-2.482 8.927 8.927 0 01-2.812 1.07A4.45 4.45 0 0014.288 8.04c-3.708 0-6.711-3.003-6.711-6.711 0-.395.044-.783.128-1.156A8.88 8.88 0 001 5.952a12.597 12.597 0 007.03 9.471 4.444 4.444 0 01-1.954 1.144 4.484 4.484 0 01-.65-.04c1.884.67 4.093 1.058 6.54 1.058 7.844 0 12.138-6.495 12.138-12.138 0-.185-.004-.368-.011-.55z" />
                             </svg>
                         </a>
-                        <a href="#" class="hover:text-hospital-blue transition duration-150">
+                        <a href="#" class="transition duration-150 hover:text-hospital-blue">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.325 15.688H13.5V12h2.25l.337-2.75H13.5V7.5c0-.68.188-1.144 1.144-1.144h1.22V4.57c-.212-.027-1.144-.112-2.188-.112-2.17 0-3.656 1.334-3.656 3.75V9.25H8.25v2.75h1.562V17.688H8.25V20.5H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
@@ -470,7 +776,7 @@
                 </div>
             </div>
 
-            <div class="mt-8 pt-4 border-t border-gray-100 text-center">
+            <div class="pt-4 mt-8 text-center border-t border-gray-100">
                 <p class="text-xs text-gray-400">&copy; 2025 Amsyar Najwan. Hak Cipta Terpelihara. | Polisi Privasi</p>
             </div>
         </footer>
@@ -493,6 +799,59 @@
                     card.style.display = 'none';
                 }
             });
+        });
+
+        function filterDoctors(category) {
+            let cards = document.querySelectorAll('.doctor-card');
+
+            // Update button styles (Visual active state)
+            let buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                // Reset style
+                btn.classList.remove('bg-hospital-blue', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-600');
+
+                // Set active style if text matches category (Simple check)
+                if (btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent === 'Semua')) {
+                    btn.classList.remove('bg-white', 'text-gray-600');
+                    btn.classList.add('bg-hospital-blue', 'text-white');
+                }
+            });
+
+            cards.forEach(card => {
+                let cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            let searchQuery = this.value.toLowerCase();
+            let doctorCards = document.querySelectorAll('.doctor-card');
+            let hasResults = false;
+
+            doctorCards.forEach(function (card) {
+                let name = card.querySelector('h3').innerText.toLowerCase();
+                let dept = card.querySelector('p').innerText.toLowerCase();
+
+                if (name.includes(searchQuery) || dept.includes(searchQuery)) {
+                    card.style.display = '';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Toggle mesej "Tiada Doktor Dijumpai"
+            let noResultsMsg = document.getElementById('noResults');
+            if (hasResults) {
+                noResultsMsg.classList.add('hidden');
+            } else {
+                noResultsMsg.classList.remove('hidden');
+            }
         });
     </script>
 </body>
